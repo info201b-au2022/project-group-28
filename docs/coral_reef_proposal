@@ -60,7 +60,8 @@ https://www.npr.org/2022/03/26/1088886918/australia-great-barrier-reef-coral-ble
 US Department of Commerce, National Oceanic and Atmospheric Administration.“What Is Coral Bleaching?” NOAA's National Ocean Service, 15 Mar. 2010,
 https://oceanservice.noaa.gov/facts/coral_bleach.html.
 
-US Department of Commerce, National Oceanic and Atmospheric Administration. “The Importance of Coral Reefs - Corals: NOAA's National Ocean Service Education.” Corals Tutorial, 1 June 2013,	https://oceanservice.noaa.gov/education/tutorial_corals/coral07_importance.html.
+US Department of Commerce, National Oceanic and Atmospheric Administration. “The Importance of Coral Reefs - Corals: NOAA's National Ocean Service Education.” Corals Tutorial, 1 June 2013,
+https://oceanservice.noaa.gov/education/tutorial_corals/coral07_importance.html.
 
 ### Research Questions
 
@@ -85,6 +86,12 @@ anticipated. Understanding how densely populated areas might affect the health o
 make changes to improve the state of these reefs as well.
 
 ### The Dataset
+This data set shows where coral bleaching occurs. The table shows the different
+locations around the world and how effected each location is by coral bleaching.
+The range of each dataset displays how coral bleaching has occurred overtime
+and how it has increased or decreased depending on the location.
+
+
 | Data File Name | Number of Observations | Number of Variables |
 | --------- | ---------------------- | ------------------- |
 | CoralBleaching | 6190 | 28 |
@@ -133,10 +140,11 @@ examined has a sample size of 6190, but the other ones only have 100-200 observa
 important to identify relationships within the data set. The scope of discussion will limit this project because we don't have
 the years of experience in analyzing and creating research projects. We also cannot get into the same depth of discussion as
 more experienced scholars.
-### Acknowledgements
-### References
-### Appendix A: Questions
-For what to do, see the [`../instructions/`](../instructions/) directory, specifically:
 
-* [Design Brief](../instructions/project-design-brief.pdf)
-* [Project Proposal Requirements](../instructions/p01-proposal-requirements.md)
+### References
+Gilmour, J. P., Cook, K. L., &amp; Ryan, N. M. (2021, August 12). Scott Reef and Rowley Shoals Coral Bleaching Data. Environmental Data Initiative. Retrieved October 31, 2022, from https://environmentaldatainitiative.org
+ReefBase. (2022, September 28). Coral Bleaching Data. Harvard Dataverse. Retrieved October 31, 2022, from https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FKUVQKY
+Ritchie, H., &amp; Roser, M. (2021, April 15). Coral reefs. Our World in Data. Retrieved October 31, 2022, from https://ourworldindata.org/coral-reefs
+Sommer, L. (2022, March 26). Australia's Great Barrier Reef is hit with mass coral bleaching yet again. NPR. Retrieved October 31, 2022, from https://www.npr.org/2022/03/26/1088886918/australia-great-barrier-reef-coral-bleaching-climate
+US Department of Commerce, N. O. and A. A. (2010, March 15). What is coral bleaching? NOAA's National Ocean Service. Retrieved October 31, 2022, from https://oceanservice.noaa.gov/facts/coral_bleach.html
+US Department of Commerce, N. O. and A. A. (2013, June 1). The importance of coral reefs - corals: NOAA's National Ocean Service Education. Corals Tutorial. Retrieved October 31, 2022, from https://oceanservice.noaa.gov/education/tutorial_corals/coral07_importance.html 
