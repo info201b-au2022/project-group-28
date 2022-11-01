@@ -10,6 +10,58 @@ Autumn 2022
 Great Barrier reef; ocean sustainability; climate change; coral bleaching
 ### Introduction
 ### Problem Domain
+##### Why Are Corals Bleaching?
+For this project, we examined the increasing rate of coral bleaching and its impacts on the Great Barrier Reef in the
+last decade. To start, we asked, “what’s causing the coral bleaching in the Great Barrier Reef?”
+According to National Public Radio, “Abnormally hot ocean temperatures, as high as 7 degrees Fahrenheit above average,
+have stressed the reef” (1). Typically, coral bleaching occurs when the water temperature is too warm and the leading cause
+is climate change: an excessive amount of CO2 is being transferred into the ocean, which causes the water temperature to
+rise. Among many problems climate change is causing our world, coral bleaching is one of them, and it’s our job to sustain
+the health of corals.
+
+##### What’s Coral Bleaching?
+
+The National Oceanic and Atmospheric Administration state, “When corals are stressed by changes in conditions such as
+temperature, light, or nutrients, they expel the symbiotic algae living in their tissues, causing them to turn completely
+white.” (2). Change in average water temperature causes corals to expel the algae living within their tissues (Zooxanthellae)
+and turn completely white. Zooxanthellae are crucial to the health of living corals because it provides food for them from a
+process called photosynthesis.
+
+
+##### Why Should We Care? (Human Values)
+
+“A quarter of marine species depend on coral reefs at some point in their lives, as do millions of people who depend on reefs
+for food, jobs, and shoreline protection from storm surges.” (1) Coral reefs are some of the most diverse and valuable
+ecosystems on Earth and according to the NOAA, “Coral reefs support more species per unit area than any other marine environment,
+including about 4,000 species of fish, 800 species of hard corals and hundreds of other species” (3). Not only do coral reefs
+support thousands of marine species, many drugs are now being developed from coral reef animals and plants as well.
+These drugs could be possible cures for cancer, arthritis, human bacterial infections, viruses, and other diseases.
+Coral reefs support commercial and subsistence fisheries as well as jobs and businesses through tourism and recreation.
+To us, coral reefs are essential for our supply of fisheries. “Approximately half of all federally managed fisheries depend on
+coral reefs and related habitats for a portion of their life cycles. The National Marine Fisheries Service estimates the
+commercial value of U.S. fisheries from coral reefs is over $100 million” (3). Coral reefs also makes billions of dollars for
+local economies. Coral reefs attract visitors through diving tours, recreational fishing trips, hotels, restaurants, and other
+businesses based near reef ecosystems.
+
+Lastly, “Coral reef structures also buffer shorelines against 97 percent of the energy from waves, storms, and floods,
+helping to prevent loss of life, property damage, and erosion” (3). The natural barrier acts as protection for coastal
+communities from normal wave action and violent storms. Replacing these barriers will be costly and without it, the coastal
+residents will be at risk.
+
+##### Who’s At Stake?
+Directly, coral bleaching causes harm for the corals and the marine life that depends on the coral and the reefs for survival.
+But indirectly, there are many stakes to the human economy and their well-being.
+
+##### Citation
+
+Sommer, Lauren. “Australia's Great Barrier Reef Is Hit with Mass Coral Bleaching Yet Again.” NPR, NPR, 26 Mar. 2022,
+https://www.npr.org/2022/03/26/1088886918/australia-great-barrier-reef-coral-bleaching-climate.
+
+US Department of Commerce, National Oceanic and Atmospheric Administration.“What Is Coral Bleaching?” NOAA's National Ocean Service, 15 Mar. 2010,
+https://oceanservice.noaa.gov/facts/coral_bleach.html.
+
+US Department of Commerce, National Oceanic and Atmospheric Administration. “The Importance of Coral Reefs - Corals: NOAA's National Ocean Service Education.” Corals Tutorial, 1 June 2013,	https://oceanservice.noaa.gov/education/tutorial_corals/coral07_importance.html.
+
 ### Research Questions
 ### The Dataset
 | Data File Name | Number of Observations | Number of Variables |
@@ -33,7 +85,7 @@ Great Barrier reef; ocean sustainability; climate change; coral bleaching
 
 ### Expected Implications
 ### Limitations
-Some limitations may be limited access to research and data sets. There is lots of data on coral bleaching in general, but examining the Great Barrier reef in the last decade is a bit harder to find information on. To overcome this setback, the librarians at UW would be a good resource to help. They could provide instruction on where to look and how to compile a data set that answers our research questions. It also may be difficult to find a large enough sample size. The first data table we examined has a sample size of 6190, but the other ones only have 100-200 observations. Having a larger sample size will be important to identify relationships within the data set. The scope of discussion will limit this project because we don't have the years of experience in analyzing and creating research projects. We also cannot get into the same depth of discussion as more experienced scholars.  
+Some limitations may be limited access to research and data sets. There is lots of data on coral bleaching in general, but examining the Great Barrier reef in the last decade is a bit harder to find information on. To overcome this setback, the librarians at UW would be a good resource to help. They could provide instruction on where to look and how to compile a data set that answers our research questions. It also may be difficult to find a large enough sample size. The first data table we examined has a sample size of 6190, but the other ones only have 100-200 observations. Having a larger sample size will be important to identify relationships within the data set. The scope of discussion will limit this project because we don't have the years of experience in analyzing and creating research projects. We also cannot get into the same depth of discussion as more experienced scholars.
 ### Acknowledgements
 ### References
 ### Appendix A: Questions
