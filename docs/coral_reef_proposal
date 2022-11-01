@@ -63,6 +63,7 @@ https://oceanservice.noaa.gov/facts/coral_bleach.html.
 US Department of Commerce, National Oceanic and Atmospheric Administration. “The Importance of Coral Reefs - Corals: NOAA's National Ocean Service Education.” Corals Tutorial, 1 June 2013,	https://oceanservice.noaa.gov/education/tutorial_corals/coral07_importance.html.
 
 ### Research Questions
+
 ### The Dataset
 | Data File Name | Number of Observations | Number of Variables |
 | --------- | ---------------------- | ------------------- |
@@ -72,20 +73,46 @@ US Department of Commerce, National Oceanic and Atmospheric Administration. “T
 | coral_bleaching_events | 185 | 5 |
 
 ##### Citations
-1. ReefBase. (2022, September 28). Coral Bleaching Data. Harvard Dataverse. Retrieved October 31, 2022, from https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FKUVQKY
+ReefBase. (2022, September 28). Coral Bleaching Data. Harvard Dataverse. Retrieved October 31, 2022, from
+https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FKUVQKY
 
-1. Gilmour, J. P., Cook, K. L., &amp; Ryan, N. M. (2021, August 12). Scott Reef and Rowley Shoals Coral Bleaching Data. Environmental Data Initiative. Retrieved October 31, 2022, from https://environmentaldatainitiative.org
+Gilmour, J. P., Cook, K. L., &amp; Ryan, N. M. (2021, August 12). Scott Reef and Rowley Shoals Coral Bleaching Data.
+Environmental Data Initiative. Retrieved October 31, 2022, from https://environmentaldatainitiative.org
 
-1. Ritchie, H., &amp; Roser, M. (2021, April 15). Coral reefs. Our World in Data. Retrieved October 31, 2022, from https://ourworldindata.org/coral-reefs
+Ritchie, H., &amp; Roser, M. (2021, April 15). Coral reefs. Our World in Data. Retrieved October 31, 2022, from
+https://ourworldindata.org/coral-reefs
 
 ##### Provenance of Data
-1. The first data set, as cited above, was intially complied by UNEP-WCMC and since than has been expanded by Dr. J. Oliver, Mr. Y. Yusuf, and Ms. Nurulhuda Ahmad Fatan from WorldFish. The authors began collecting this data in 1963 and continued until 2012. It was funded by WorldFish, which is an international, non-profit research organization focused on improving fisheries and aquaculture. Because this is a nonprofit organization, the researchers aren't likely to make money. This data is valid because Dr. J. Oliver held a top senior scientific position in WorldFish. UNEP-WCMC is also a credible biodiversity resource. I obtained this data from Harvard Dataverse and I credit it as a valid respository for publishing data and code.
-1. The next two data sets both come from James P Gilmour, Kylie L Cook, and Nicole M Ryan. They began collecting data in 1994 and ended in 2017. The collecton of data was funded by the Austrialian Federal Goverment and Austrialian Institutite of Marine Science. The researchers were most likely paid by the government to gather this data. It is credible because it is backed by a government organization. I obtained this data set through DataOne, which is another repository that facilitates data sharing.
-1. The last data set came from Terry P Hughes, Kristen D Anderson, Shaun K Wilson, and more. Data collection spanned from 1980-2016. This research was funded by the Australian Research Council;s Centre of Excellence Program. The data is validated because the authors attatched a document detailing how they gathered all of the data. Their materials, methods, and data analysis all appear to be reliable. I gathered this data from *Our World in Data*, which is a scientific online publication that focuses on large global problems. *Our World in Data* is credible because it has been cited by academic scientific journals and social science journals such as The Washington Post, The New York Times, and The Economist.
+1. The first data set, as cited above, was intially complied by UNEP-WCMC and since than has been expanded by Dr. J. Oliver,
+Mr. Y. Yusuf, and Ms. Nurulhuda Ahmad Fatan from WorldFish. The authors began collecting this data in 1963 and continued
+until 2012. It was funded by WorldFish, which is an international, non-profit research organization focused on improving
+fisheries and aquaculture. Because this is a nonprofit organization, the researchers aren't likely to make money.
+This data is valid because Dr. J. Oliver held a top senior scientific position in WorldFish. UNEP-WCMC is also a credible
+biodiversity resource. I obtained this data from Harvard Dataverse and I credit it as a valid respository for publishing data
+and code.
+2. The next two data sets both come from James P Gilmour, Kylie L Cook, and Nicole M Ryan. They began collecting data in 1994
+and ended in 2017. The collecton of data was funded by the Austrialian Federal Goverment and Austrialian Institutite of
+Marine Science. The researchers were most likely paid by the government to gather this data. It is credible because it is
+backed by a government organization. I obtained this data set through DataOne, which is another repository that facilitates
+data sharing.
+3. The last data set came from Terry P Hughes, Kristen D Anderson, Shaun K Wilson, and more. Data collection spanned from
+1980-2016. This research was funded by the Australian Research Council;s Centre of Excellence Program. The data is validated
+because the authors attatched a document detailing how they gathered all of the data. Their materials, methods, and data
+analysis all appear to be reliable. I gathered this data from *Our World in Data*, which is a scientific online publication
+that focuses on large global problems. *Our World in Data* is credible because it has been cited by academic scientific
+journals and social science journals such as The Washington Post, The New York Times, and The Economist.
 
 ### Expected Implications
+
 ### Limitations
-Some limitations may be limited access to research and data sets. There is lots of data on coral bleaching in general, but examining the Great Barrier reef in the last decade is a bit harder to find information on. To overcome this setback, the librarians at UW would be a good resource to help. They could provide instruction on where to look and how to compile a data set that answers our research questions. It also may be difficult to find a large enough sample size. The first data table we examined has a sample size of 6190, but the other ones only have 100-200 observations. Having a larger sample size will be important to identify relationships within the data set. The scope of discussion will limit this project because we don't have the years of experience in analyzing and creating research projects. We also cannot get into the same depth of discussion as more experienced scholars.
+Some limitations may be limited access to research and data sets. There is lots of data on coral bleaching in general, but
+examining the Great Barrier reef in the last decade is a bit harder to find information on. To overcome this setback, the
+librarians at UW would be a good resource to help. They could provide instruction on where to look and how to compile a data
+set that answers our research questions. It also may be difficult to find a large enough sample size. The first data table we
+examined has a sample size of 6190, but the other ones only have 100-200 observations. Having a larger sample size will be
+important to identify relationships within the data set. The scope of discussion will limit this project because we don't have
+the years of experience in analyzing and creating research projects. We also cannot get into the same depth of discussion as
+more experienced scholars.
 ### Acknowledgements
 ### References
 ### Appendix A: Questions
