@@ -17,6 +17,14 @@ other environmental concerns.
 Great Barrier reef; ocean sustainability; climate change; coral bleaching
 
 ### Introduction
+Over the last decade, coral bleaching has been an environmental issue that has frequently reoccured in media and the news. Coral bleaching is a phenomenon
+that occurs when coral tissues turn completely white, giving coral skeletons a ghostly, lifeless appearance. Though coral bleaching does not kill the
+itself, they become more vulnerable and more subject to mortality, affecting the millions of organisms in their ecosystem that depend on coral to survive.
+More specifically, the Great Barrier Reef is the world's largest reef affected by coral bleaching. Most coral health data is presented in hard coral cover
+percentage, where a higher percentage indicates healthier coral. By exploring datasets and data visualizations on coral hard coral cover percentage in the
+Great Barrier Reef over the last decade, we hope to identify pattens and causes of coral bleaching in that general location over a broad spectrum of areas,
+including location, time, and population. Hopefully by identifying the problems, we can make progress in finding solutions and help prevent coral bleaching.
+
 ### Problem Domain
 ##### Why Are Corals Bleaching?
 For this project, we examined the increasing rate of coral bleaching and its impacts on the Great Barrier Reef in the
