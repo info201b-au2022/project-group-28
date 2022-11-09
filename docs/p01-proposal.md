@@ -1,5 +1,3 @@
-# Coral Bleaching: Project Proposal
-
 # How Coral Bleaching Has Transformed the Great Barrier Reef Over the Last Decade
 Authors: Sarah Haworth (shaworth@uw.edu), Erin Dong (edong10@uw.edu) Brian Yoo (byoo7@uw.edu)
 
