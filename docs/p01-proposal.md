@@ -6,6 +6,10 @@ Authors: Sarah Haworth (shaworth@uw.edu), Erin Dong (edong10@uw.edu) Brian Yoo (
 Autumn 2022
 
 ### Abstract
+<<<<<<< HEAD
+=======
+
+>>>>>>> 19c85af043acb5784419fdb73019e2832f82270e
 Our main question for this report is "What factors can affect coral bleaching in the Great Barrier Reef?", and this question is
 important because the Great Barrier Reef is the largest coral reef in the world with millions of organisms and people depending on the health
 of its ecosystem, and identifying patterns in data can also help show what can be done to prevent coral bleaching. To address the question,
@@ -14,10 +18,27 @@ are concerned with not only what causes coral bleaching, but also about what the
 other environmental concerns.
 
 ### Keywords
+<<<<<<< HEAD
 Great Barrier reef; ocean sustainability; climate change; coral bleaching
 
 ### Introduction
 ### Problem Domain
+=======
+
+Great Barrier reef; ocean sustainability; climate change; coral bleaching
+
+### Introduction
+Over the last decade, coral bleaching has been an environmental issue that has frequently reoccured in media and the news. Coral bleaching is a phenomenon
+that occurs when coral tissues turn completely white, giving coral skeletons a ghostly, lifeless appearance. Though coral bleaching does not kill the
+itself, they become more vulnerable and more subject to mortality, affecting the millions of organisms in their ecosystem that depend on coral to survive.
+More specifically, the Great Barrier Reef is the world's largest reef affected by coral bleaching. Most coral health data is presented in hard coral cover
+percentage, where a higher percentage indicates healthier coral. By exploring datasets and data visualizations on coral hard coral cover percentage in the
+Great Barrier Reef over the last decade, we hope to identify pattens and causes of coral bleaching in that general location over a broad spectrum of areas,
+including location, time, and population. Hopefully by identifying the problems, we can make progress in finding solutions and help prevent coral bleaching.
+
+### Problem Domain
+
+>>>>>>> 19c85af043acb5784419fdb73019e2832f82270e
 ##### Why Are Corals Bleaching?
 For this project, we examined the increasing rate of coral bleaching and its impacts on the Great Barrier Reef in the
 last decade. To start, we asked, “what’s causing the coral bleaching in the Great Barrier Reef?”
@@ -28,7 +49,10 @@ rise. Among many problems climate change is causing our world, coral bleaching i
 the health of corals.
 
 ##### What’s Coral Bleaching?
+<<<<<<< HEAD
 
+=======
+>>>>>>> 19c85af043acb5784419fdb73019e2832f82270e
 The National Oceanic and Atmospheric Administration state, “When corals are stressed by changes in conditions such as
 temperature, light, or nutrients, they expel the symbiotic algae living in their tissues, causing them to turn completely
 white.” (2). Change in average water temperature causes corals to expel the algae living within their tissues (Zooxanthellae)
@@ -37,7 +61,10 @@ process called photosynthesis.
 
 
 ##### Why Should We Care? (Human Values)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 19c85af043acb5784419fdb73019e2832f82270e
 “A quarter of marine species depend on coral reefs at some point in their lives, as do millions of people who depend on reefs
 for food, jobs, and shoreline protection from storm surges.” (1) Coral reefs are some of the most diverse and valuable
 ecosystems on Earth and according to the NOAA, “Coral reefs support more species per unit area than any other marine environment,
@@ -99,7 +126,6 @@ locations around the world and how effected each location is by coral bleaching.
 The range of each dataset displays how coral bleaching has occurred overtime
 and how it has increased or decreased depending on the location.
 
-
 | Data File Name | Number of Observations | Number of Variables |
 | --------- | ---------------------- | ------------------- |
 | CoralBleaching | 6190 | 28 |
@@ -138,6 +164,15 @@ that focuses on large global problems. *Our World in Data* is credible because i
 journals and social science journals such as The Washington Post, The New York Times, and The Economist.
 
 ### Expected Implications
+
+We can draw out essential data and information about the coral reefs' health and bleaching. The data we gathered answers
+where coral bleaching occurs and the factors causing the rate of coral bleaching to rise. Within the Great Barrier, we could
+pinpoint the exact location where coral bleaching most commonly occurs. This helped us determine what marine species are at
+stake and why the environment caused so much coral bleaching. The information we gathered can help inform and teach others how
+to better care for the environment and save the corals. Our research can be shared with numerous people and let them know the
+significance of the coral reefs and how they can help contribute to protecting them. Our data may also be helpful to marine
+biologists or conservationists in the future. They may need information on coral bleaching in the Great Barrier Reef and use
+our research in their projects.
 
 ### Limitations
 Some limitations may be limited access to research and data sets. There is lots of data on coral bleaching in general, but
