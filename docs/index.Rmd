@@ -11,12 +11,19 @@ Data collection and ended in 2011. 50% of the bleached coral data was collected
 between 1998 and 2004. The average year for coral with a bleached severity code
 greater than 0 is 2001. The average severity code of the data is 0.8992.
 
-
-```{r table, echo=FALSE}
-library("knitr")
-
+```{r}
+library(tidyverse)
+library(stringr)
+library(dplyr)
+library(tidyr)
+library(readr)
+coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
+table <- coral_data %>% 
+  select(COUNTRY, CORAL_SPECIES, BLEACHING_SEVERITY, WATER_TEMPERATURE, OTHER_FACTORS) %>% 
+  group_by(COUNTRY) %>% 
+  filter(CORAL_SPECIES == "Acropora"| CORAL_SPECIES == "Montipora"|
+           CORAL_SPECIES == "Pocillopora"| CORAL_SPECIES == "Porites")
 ```
-
 
 
 ```{r}
@@ -44,8 +51,8 @@ install.packages(c("sf", "mapview"))
 library(tidyverse)
 library(sf)
 library(mapview)
-setwd("C:/Users/sarah/OneDrive/Documents/info201/project-group-28/data")
-coral_data <- read.csv("CoralBleaching.csv")
+library(readr)
+coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
 filtered_coral_data <- filter(coral_data, SEVERITY_CODE > 0)
 mapview(filtered_coral_data, xcol = "LON", ycol = "LAT", crs = 4269, 
         grid = FALSE)
