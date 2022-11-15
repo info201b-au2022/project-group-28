@@ -12,6 +12,9 @@ table <- coral_data %>%
   filter(CORAL_SPECIES == "Acropora"| CORAL_SPECIES == "Montipora"|
            CORAL_SPECIES == "Pocillopora"| CORAL_SPECIES == "Porites") 
 
+tab <- table(table)
+View(tab)
+
 # This table shows the necessary elements and value we used to create our visualizations and 
 # answer our research questions. The table includes the information on four main species of
 # corals. It includes the location, bleaching level, and factors to the corals' bleaching.
