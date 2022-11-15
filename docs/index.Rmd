@@ -54,7 +54,6 @@ to bleaching based on their coral reef size. We can see that the most susceptibl
 
 ```{r}
 #Chart 2
-#install.packages(c("sf", "mapview"))
 library(tidyverse)
 library(sf)
 library(mapview)
