@@ -47,7 +47,7 @@ The chart I included displays what kind of coral species are most susceptible to
 
 ```{r}
 #Chart 2
-install.packages(c("sf", "mapview"))
+#install.packages(c("sf", "mapview"))
 library(tidyverse)
 library(sf)
 library(mapview)
