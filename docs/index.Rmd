@@ -57,10 +57,22 @@ filtered_coral_data <- filter(coral_data, SEVERITY_CODE > 0)
 mapview(filtered_coral_data, xcol = "LON", ycol = "LAT", crs = 4269, 
         grid = FALSE)
 ```
-This map shows the longitude and latitude of all the locations where coral bleaching has a severity code greater than 0 in this data set. As the map shows, coral bleaching affects coral reefs all over the world. It is not just concentrated to one area. The data points appear to be more concentrated north of Australia and between North America and South America. This is also where a larger number of coral reefs are located. This is helpful to understand that coral bleaching does not necessarily have any correlation with a particular region of the world. 
+This map shows the longitude and latitude of all the locations where coral bleaching has a severity code greater than 0 in this data set. As the map shows, coral bleaching affects coral reefs all over the world. It is not just concentrated to one area. The data points appear to be more concentrated north of Australia and between North America and South America. This is also where a larger number of coral reefs are located. This is helpful to understand that coral bleaching does not necessarily have any correlation with a particular region of the world.
+
 ```{r}
 #Chart 3
+library(tidyverse)
+library("ggplot2")
 
+severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
+
+ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
+  geom_point() +
+  labs(title = "Severe Coral Bleaching Events Over Time",
+       x = "Year",
+       y = "Number of Severe Bleaching Events >30% Bleached")
 ```
-
-
+This data visualization shows a general timeline of severe coral bleaching events from the year 1930 to 2016, and is organized by general
+location, which in this case is the ocean's region. The x-axis shows the change in time, while the y-axis shows the number of severe
+bleaching events that occurred that year. The data points are organized by location, with a different color representing each region.
+Overall, Australasia has the most frequent severe coral bleaching events with the exception of the World category.
