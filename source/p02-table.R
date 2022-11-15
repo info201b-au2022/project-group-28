@@ -2,9 +2,8 @@ library(tidyverse)
 library(stringr)
 library(dplyr)
 library(tidyr)
-
-setwd("/Users/brianyoo/Documents/Info201/project/project-group-28/data")
-coral_data <- read.csv("CoralBleaching.csv")
+library(readr)
+coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
 
 table <- coral_data %>% 
   select(COUNTRY, CORAL_SPECIES, BLEACHING_SEVERITY, WATER_TEMPERATURE, OTHER_FACTORS) %>% 
