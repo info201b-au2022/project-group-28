@@ -1,7 +1,7 @@
 ---
-title: "Your Project Title"
-author: "project team members"
-date: "1/22/2022"
+title: "The Impacts of Coral Bleaching Over the Last Decade"
+author: "Sarah Haworth, Erin Dong, Brian Yoo"
+date: "11/14/2022"
 output: html_document
 ---
 
@@ -14,7 +14,6 @@ knitr::opts_chunk$set(echo = TRUE)
 * This file will eventually become your project report for **P02: Exploratory Data Analysis**. Specifically, you will write rmarkdown to report your exploratory data analysis.
 
 * Please see Canvas for more details.
-
 ## ACCESSING THE /source DIRECTORY
 ### Example 1: Source some code and run a function
 ```{r}
@@ -33,22 +32,35 @@ msg <- data_access_test(" Morgan!")
 
 > `r msg` Hope you have a good day!! 
 
-## ABOUT THIS FILE: 
+```{r}
+#Chart 1
+library(tidyverse)
+library(dplyr)
+library(tidyr)
+library("ggplot2") 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+name = c("Acropora", "Montipora", "Pocillopora", "Porites")
+Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
+value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
+corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
+ggplot(data = corals, aes(x = name, y = value, fill = Reef_Size)) + 
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Coral Species vs Bleaching Susceptibility", 
+       x = "Coral Species", 
+       y = "Bleaching Susceptibilty (percentage)")
 ```
+The chart I included displays what kind of coral species are most susceptible to coral bleaching. This bar graph shows four of the most common coral species and their resistance to bleaching based on their coral reef size. We can see that the most susceptible species corals are Acropora and the most resistant are the Porites species.
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+#Chart 2
+install.packages(c("sf", "mapview"))
+library(tidyverse)
+library(sf)
+library(mapview)
+setwd("C:/Users/sarah/OneDrive/Documents/info201/project-group-28/data")
+coral_data <- read.csv("CoralBleaching.csv")
+mapview(coral_data, xcol = "LON", ycol = "LAT", crs = 4269,
+        grid = FALSE)
 ```
+This map shows the longitude and latitude of all the locations where coral bleaching has occurred in this data set. As the map shows, coral bleaching affects coral reefs all over the world. It is not just concentrated to one area. The data points appear to be more concentrated north of Australia and between North America and South America. This is also where a larger number of coral reefs are located. This is helpful to understand that coral bleaching does not necessarily have any correlation with a particular region of the world. 
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
