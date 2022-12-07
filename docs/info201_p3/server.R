@@ -11,6 +11,10 @@ library(shiny)
 library(tidyverse)
 library(sf)
 library(mapview)
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2) 
 
 #create data frames
 name = c("Acropora", "Montipora", "Pocillopora", "Porites")
@@ -43,9 +47,6 @@ shinyServer(function(input, output) {
              x = "Year",
              y = "Number of Severe Bleaching Events >30% Bleached")
     })
-    output$coral_image = renderUI({
-      src = "https://insideclimatenews.org/wp-content/uploads/2016/06/American-Samoa-Before-During-After-1024x494.jpg"
-    })
-
+    
 })
 
