@@ -5,7 +5,7 @@ library("ggplot2")
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
 
 # Create scatterplot for severe bleaching events vs. year, with different colors for each general location
-ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
+scatter <- ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
   geom_point() +
   labs(title = "Severe Coral Bleaching Events Over Time",
        x = "Year",

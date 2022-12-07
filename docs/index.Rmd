@@ -1,5 +1,5 @@
 ---
-title: "The Impacts of Coral Bleaching Over the Last Decade"
+title: "The Impacts of Coral Bleaching"
 author: "Sarah Haworth, Erin Dong, Brian Yoo"
 date: "11/14/2022"
 output: html_document
@@ -25,35 +25,41 @@ coral_table <- coral_data %>%
   filter(CORAL_SPECIES == "Acropora"| CORAL_SPECIES == "Montipora"|
            CORAL_SPECIES == "Pocillopora"| CORAL_SPECIES == "Porites", na.rm = TRUE) %>% 
 head(coral_table, n = 54)
-kable(coral_table)
+table <- kable(coral_table)
+(table)
 ```
 
 This table shows the necessary elements and value we used to create our visualizations and 
 answer our research questions. The table includes the information on four main species of
 corals. It includes the location, bleaching level, and factors to the corals' bleaching.
 
+<<<<<<< HEAD
 ## Chart 1
 ```{r echo=FALSE, eval=TRUE, message=FALSE}
 library(tidyverse)
 library(dplyr)
 library(tidyr)
 library("ggplot2") 
+=======
+```{r}
+setwd("C:/Users/sarah/OneDrive/Documents/info201/project-group-28")
+source("source/p02-coral-bleaching-map.R")
+source("source/p02-coral-bargraph.R")
+source("source/coral_bleaching_events_scatterplot.R")
+```
+>>>>>>> 88485599372a812fc915fdbc93f370c525be727b
 
-name = c("Acropora", "Montipora", "Pocillopora", "Porites")
-Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
-value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
-corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
-ggplot(data = corals, aes(x = name, y = value, fill = Reef_Size)) + 
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Coral Species vs Bleaching Susceptibility", 
-       x = "Coral Species", 
-       y = "Bleaching Susceptibilty (percentage)")
+
+```{r}
+#Chart 1
+(bargraph)
 ```
 
 The chart I included displays what kind of coral species are most susceptible to coral
 bleaching. This bar graph shows four of the most common coral species and their resistance
 to bleaching based on their coral reef size. We can see that the most susceptible species corals are Acropora and the most resistant are the Porites species.
 
+<<<<<<< HEAD
 ## Chart 2
 ```{r echo=FALSE, eval=TRUE, message=FALSE}
 library(tidyverse)
@@ -64,6 +70,11 @@ coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/projec
 filtered_coral_data <- filter(coral_data, SEVERITY_CODE > 0)
 mapview(filtered_coral_data, xcol = "LON", ycol = "LAT", crs = 4269, 
         grid = FALSE)
+=======
+```{r}
+#Chart 2
+(map)
+>>>>>>> 88485599372a812fc915fdbc93f370c525be727b
 ```
 
 This map shows the longitude and latitude of all the locations where coral bleaching has a
@@ -74,6 +85,7 @@ America. This is also where a larger number of coral reefs are located. This is 
 understand that coral bleaching does not necessarily have any correlation with a particular
 region of the world.
 
+<<<<<<< HEAD
 ## Chart 3
 ```{r echo=FALSE, eval=TRUE, message=FALSE}
 library(tidyverse)
@@ -86,6 +98,11 @@ ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30
   labs(title = "Severe Coral Bleaching Events Over Time",
        x = "Year",
        y = "Number of Severe Bleaching Events >30% Bleached")
+=======
+```{r}
+#Chart 3
+scatter
+>>>>>>> 88485599372a812fc915fdbc93f370c525be727b
 ```
 
 This data visualization shows a general timeline of severe coral bleaching events from the year 1930 to 2016, and is organized by general location, which in this case is the ocean's region. The x-axis shows the change in time, while the y-axis shows the number of severe bleaching events that occurred that year. The data points are organized by location, with a different color representing each region. Overall, Australasia has the most frequent severe coral bleaching events with the exception of the World category.

@@ -4,9 +4,29 @@ library(sf)
 library(mapview)
 library(readr)
 coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
-filtered_coral_data <- filter(coral_data, SEVERITY_CODE > 0)
-mapview(filtered_coral_data, xcol = "LON", ycol = "LAT", crs = 4269, 
-        grid = FALSE)
+severity <- coral_data %>% 
+  filter(SEVERITY_CODE > 0) %>% 
+  select(COUNTRY, LAT, LON, YEAR, SEVERITY_CODE)
+pal <- colorFactor(palette = "Dark2", domain = severity[["SEVERITY_CODE"]])
+(basemap <- leaflet(data = severity) %>%
+    addTiles() %>%
+    addCircleMarkers(
+      lat = ~LAT,
+      lng = ~LON,
+      color = ~pal(severity[["SEVERITY_CODE"]]),
+      fillOpacity = 0.7,
+      radius = 4,
+      stroke = FALSE) %>%
+    addLegend(
+      position = "bottomright",
+      title = "severity code",
+      pal = pal,
+      values = severity[["SEVERITY_CODE"]],
+      opacity = 1
+    ))
+     
+#map <- mapview(filtered_coral_data, xcol = "LON", ycol = "LAT", crs = 4269, 
+#        grid = FALSE)
 
 #This map shows the longitude and latitude of all the locations where coral 
 #bleaching has a severity code greater than 0 in this data set. As the map 
