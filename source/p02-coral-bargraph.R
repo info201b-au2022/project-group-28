@@ -15,7 +15,7 @@ corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE)
 
 # create bar graph with key legend that includes different colors for each obstacles
 
-ggplot(data = corals, aes(x = name, y = value, fill = Reef_Size)) + 
+bargraph <- ggplot(data = corals, aes(x = name, y = value, fill = Reef_Size)) + 
   geom_bar(stat = "identity", position = "dodge") +
   labs(title = "Coral Species vs Bleaching Susceptibility", 
        x = "Coral Species", 

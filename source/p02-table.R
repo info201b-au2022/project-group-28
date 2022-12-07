@@ -11,7 +11,8 @@ coral_table <- coral_data %>%
   filter(CORAL_SPECIES == "Acropora"| CORAL_SPECIES == "Montipora"|
            CORAL_SPECIES == "Pocillopora"| CORAL_SPECIES == "Porites", na.rm = TRUE) %>% 
 View(coral_table)
-kable(coral_table)
+table <- kable(coral_table)
+(table)
 
 
 # This table shows the necessary elements and value we used to create our visualizations and 
