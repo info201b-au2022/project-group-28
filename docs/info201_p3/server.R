@@ -26,15 +26,31 @@ severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/inf
 coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
 severity <- coral_data %>% 
   filter(SEVERITY_CODE > 0) %>% 
-  select(COUNTRY, LAT, LON, SEVERITY_CODE)
+  select(COUNTRY, LAT, LON, YEAR, SEVERITY_CODE)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
     output$map <- renderLeaflet({
-      (basemap <- leaflet() %>%
+      pal <- colorFactor(
+        palette = "Dark2", 
+        domain = severity[["SEVERITY_CODE"]]
+        )
+      leaflet(data = severity) %>%
          addTiles() %>%
-         addMarkers(data = severity)
-      ) 
+         addCircleMarkers(
+           lat = ~LAT,
+           lng = ~LON,
+           color = ~pal(severity[["SEVERITY_CODE"]]),
+           fillOpacity = 0.7,
+           radius = 4,
+           stroke = FALSE) %>%
+         addLegend(
+           position = "bottomright",
+           title = "severity code",
+           pal = pal,
+           values = severity[["SEVERITY_CODE"]],
+           opacity = 1
+         )
     })
     output$bargraph <- renderPlot({
       bargraph <- ggplot(data = corals, aes(x = name, y = value, fill = Reef_Size)) + 

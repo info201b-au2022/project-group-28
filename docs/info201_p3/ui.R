@@ -22,8 +22,18 @@ tab_panel_01 <-tabPanel(
 tab_panel_02 <- tabPanel(
   "Map of Coral Bleaching",
   mainPanel(
-    h1("Map"),
-    leafletOutput("map")
+    h1("Coral Bleaching Around the World Based on Severity Level"),
+    selectInput("country", "Country:",
+                choices = unique(severity$COUNTRY)),
+    leafletOutput("map"),
+    p("This map shows the longitude and latitude of all the locations where coral 
+bleaching has a severity code greater than 0 in this data set. As the map 
+shows, coral bleaching affects coral reefs all over the world. It is not just
+concentrated to one area. The data points appear to be more concentrated north
+of Australia and between North America and South America. This is also where a
+larger number of coral reefs are located. This is helpful to understand that 
+coral bleaching does not necessarily have any correlation with a particular 
+region of the world.")
   )
 )
 #creating second interactive page
