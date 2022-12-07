@@ -7,14 +7,24 @@
 #    http://shiny.rstudio.com/
 #
 
+
 library(shiny)
+library(shinythemes)
 
 #creating the intro page
 tab_panel_01 <-tabPanel(
   "Introduction",
   mainPanel(
-    h1("Introduction")
-  ),
+    h1("Introduction"),
+    #img(src = "<coral_intro_image.jpeg>")
+    tags$figure(
+      align = "center",
+      tags$img(
+        src = "coral_intro_image.jpeg",
+        alt = "Picture of a coral reef dying over time)"
+      )
+    )
+  ), 
   verbatimTextOutput("introduction"))
 #creating first interactive page
 tab_panel_02 <- tabPanel(
@@ -47,7 +57,7 @@ tab_panel_06 <- tabPanel(
   "Project Report",
   mainPanel(
     h1("The Impacts of Coral Bleaching"),
-    p("Authors: Sarah Haworth (shaworth@uw.edu), Erin Dong (edong10@uw.edu) 
+    p("Authors: Sarah Haworth (shaworth@uw.edu), Erin Dong (edong10@uw.edu),
       Brian Yoo (byoo7@uw.edu)"),
     em("INFO-201: Technical Foundations of Informatics - The Information School
        - University of Washington"),
@@ -154,7 +164,7 @@ journals and social science journals such as The Washington Post, The New York T
     )
 )
 # Define UI for application that draws a histogram
-shinyUI(fluidPage(
+runApp(fluidPage(
   theme = shinytheme("darkly"),
   navlistPanel(
     "Trends Coral Reef Bleaching",
@@ -173,3 +183,4 @@ shinyUI(fluidPage(
     tab_panel_06
   )
 ))
+
