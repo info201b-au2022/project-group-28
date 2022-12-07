@@ -11,10 +11,7 @@ library(shiny)
 library(tidyverse)
 library(sf)
 library(mapview)
-library(readr)
-library(dplyr)
-library(tidyr)
-library(ggplot2) 
+library(leaflet)
 
 #create data frames
 name = c("Acropora", "Montipora", "Pocillopora", "Porites")
@@ -23,15 +20,21 @@ value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
 
 
 corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
-coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
-filtered_coral_data <- filter(coral_data, SEVERITY_CODE > 0)
 
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
+
+coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
+severity <- coral_data %>% 
+  filter(SEVERITY_CODE > 0) %>% 
+  select(COUNTRY, LAT, LON, SEVERITY_CODE)
+
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-    output$map <- renderPlot({
-      map <- mapview(filtered_coral_data, xcol = "LON", ycol = "LAT", crs = 4269, 
-              grid = FALSE)
+    output$map <- renderLeaflet({
+      (basemap <- leaflet() %>%
+         addTiles() %>%
+         addMarkers(data = severity)
+      ) 
     })
     output$bargraph <- renderPlot({
       bargraph <- ggplot(data = corals, aes(x = name, y = value, fill = Reef_Size)) + 
@@ -49,4 +52,3 @@ shinyServer(function(input, output) {
     })
     
 })
-

@@ -3,10 +3,16 @@ library(tidyverse)
 library(sf)
 library(mapview)
 library(readr)
-coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
-filtered_coral_data <- filter(coral_data, SEVERITY_CODE > 0)
-map <- mapview(filtered_coral_data, xcol = "LON", ycol = "LAT", crs = 4269, 
-        grid = FALSE)
+(coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv"))
+severity <- coral_data %>% 
+  filter(SEVERITY_CODE > 0) %>% 
+  select(COUNTRY, LAT, LON, SEVERITY_CODE)
+basemap <- leaflet() %>%
+    addTiles() %>%
+    addMarkers(data = severity)
+     
+#map <- mapview(filtered_coral_data, xcol = "LON", ycol = "LAT", crs = 4269, 
+#        grid = FALSE)
 
 #This map shows the longitude and latitude of all the locations where coral 
 #bleaching has a severity code greater than 0 in this data set. As the map 
@@ -17,10 +23,4 @@ map <- mapview(filtered_coral_data, xcol = "LON", ycol = "LAT", crs = 4269,
 #coral bleaching does not necessarily have any correlation with a particular 
 #region of the world. 
 
-world_1 <- ggplot(data = filtered_coral_data) +
-  geom_sf()
-usa_2 <- ggplot(data = filtered_coral_data) +
-  geom_sf(aes(fill = SEVERITY_CODE)) +
-  ggtitle(label = "The Honey crisis of 2008", subtitle = "Price per lb")
-(usa_2)
 

@@ -8,6 +8,8 @@
 #
 
 library(shiny)
+library(shinythemes)
+library(leaflet)
 
 #creating the intro page
 tab_panel_01 <-tabPanel(
@@ -21,7 +23,7 @@ tab_panel_02 <- tabPanel(
   "Map of Coral Bleaching",
   mainPanel(
     h1("Map"),
-    plotOutput("map")
+    leafletOutput("map")
   )
 )
 #creating second interactive page
@@ -140,6 +142,15 @@ journals and social science journals such as The Washington Post, The New York T
     h3("Limitations"),
     p("Some limitations may be limited access to research and data sets. There is lots of data on coral bleaching in general, but it isn't necessarily exactly what we need to answer our research questions. To overcome this setback, the librarians at UW would be a good resource to help. They could provide instruction on where to look and how to compile a data set that answers our research questions. It also may be difficult to find a large enough sample size. The first data table we examined has a sample size of 6190, but the other ones only have 100-200 observations. Having a larger sample size will be important to identify relationships within the data set. The scope of discussion will limit this project because we don't have the years of experience in analyzing and creating research projects. We also cannot get into the same depth of discussion as more experienced scholars."),
     h3("Findings"),
+    h5(strong("Where does coral bleaching occur most commonly?")),
+    p("Coral bleaching is not more concentrated to one area of the world. Wherever there are coral reefs, coral bleaching occurs. If one were to compare a map of all the coral reefs in the world, it would look very similar to the map displayed of bleached coral reefs. The majority of coral reef bleaching occurs in the climate that coral reefs thrive in, which are tropical and subtropical oceans. These are typically closer to the equator. Over half the world’s coral reef bleaching occurrence happen within these 6 countries: Australia, Indonesia, the Philippines, Papua New Guinea, Fiji, and the Maldives. "),
+    h5(strong("When does coral bleaching occur?")),
+    p("The highest-level severity of coral bleaching events has occurred in the past 20 years. The data also appears to be more highly concentrated in the past 20 years, giving evidence that the amount of coral bleaching events has increased overall. This correlates with the rise in climate change and pollution, which are main factors of coral bleaching. The data collected ranges from 1980 to 2016. Based on the trends of the data, it can be assumed that coral bleaching has only increased during the 2016 to 2022 gap where data was not collected, and coral bleaching will continue to get worse in the future. "),
+    h5(strong("Can more coral reefs adapt to survive with resilient species?")),
+    p("Certain species are more susceptible to coral bleaching and some species are more resilient. Based on the data explored in this report, the", em("Acropora"), "species appears to be the most susceptible.", em("Acropora"),
+      "is one of the most widespread coral groups. This is mainly due to the fact that it can cope with rapid sea-level changes. Unfortunately,", em("Acropora"), "is very sensitive to changes in the ocean caused by human activity. The ",
+      em("Montipora"), "species also seems to be more susceptible as well.", em("Montipora"), "Montipora is much rarer but is easily impacted by ocean warming. The", em("Pocillopora"), "and", em("Porites"), "species are more resilient to coral bleaching than the two species mentioned above.",
+      em("Pocillopora"), "is found on most coral reefs of the Indo-Pacific and eastern Pacific. It is relatively common.", em("Porites"), "is rarer and can be found in reefs throughout the world."),
     h3("Discussion"),
     h3("Conclusion"),
     h3("Acknowledgements"),
@@ -154,7 +165,7 @@ journals and social science journals such as The Washington Post, The New York T
     )
 )
 # Define UI for application that draws a histogram
-runApp(fluidPage(
+fluidPage(
   theme = shinytheme("darkly"),
   navlistPanel(
     "Trends Coral Reef Bleaching",
@@ -172,5 +183,5 @@ runApp(fluidPage(
     
     tab_panel_06
   )
-))
+)
 
