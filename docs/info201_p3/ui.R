@@ -20,7 +20,7 @@ corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE)
 
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
 
-coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
+coral_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
 severity <- coral_data %>% 
   filter(SEVERITY_CODE > 0) %>% 
   select(COUNTRY, LAT, LON, YEAR, SEVERITY_CODE)
