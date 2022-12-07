@@ -11,7 +11,7 @@ Data collection and ended in 2011. 50% of the bleached coral data was collected
 between 1998 and 2004. The average year for coral with a bleached severity code
 greater than 0 is 2001. The average severity code of the data is 0.8992.
 
-```{r}
+```{r echo=FALSE, eval=TRUE, message=FALSE}
 library(tidyverse)
 library(dplyr)
 library(tidyr)
@@ -27,12 +27,13 @@ coral_table <- coral_data %>%
 head(coral_table, n = 54)
 kable(coral_table)
 ```
+
 This table shows the necessary elements and value we used to create our visualizations and 
 answer our research questions. The table includes the information on four main species of
 corals. It includes the location, bleaching level, and factors to the corals' bleaching.
 
-```{r}
-#Chart 1
+## Chart 1
+```{r echo=FALSE, eval=TRUE, message=FALSE}
 library(tidyverse)
 library(dplyr)
 library(tidyr)
@@ -48,12 +49,13 @@ ggplot(data = corals, aes(x = name, y = value, fill = Reef_Size)) +
        x = "Coral Species", 
        y = "Bleaching Susceptibilty (percentage)")
 ```
+
 The chart I included displays what kind of coral species are most susceptible to coral
 bleaching. This bar graph shows four of the most common coral species and their resistance
 to bleaching based on their coral reef size. We can see that the most susceptible species corals are Acropora and the most resistant are the Porites species.
 
-```{r}
-#Chart 2
+## Chart 2
+```{r echo=FALSE, eval=TRUE, message=FALSE}
 library(tidyverse)
 library(sf)
 library(mapview)
@@ -63,6 +65,7 @@ filtered_coral_data <- filter(coral_data, SEVERITY_CODE > 0)
 mapview(filtered_coral_data, xcol = "LON", ycol = "LAT", crs = 4269, 
         grid = FALSE)
 ```
+
 This map shows the longitude and latitude of all the locations where coral bleaching has a
 severity code greater than 0 in this data set. As the map shows, coral bleaching affects
 coral reefs all over the world. It is not just concentrated to one area. The data points
@@ -71,8 +74,8 @@ America. This is also where a larger number of coral reefs are located. This is 
 understand that coral bleaching does not necessarily have any correlation with a particular
 region of the world.
 
-```{r}
-#Chart 3
+## Chart 3
+```{r echo=FALSE, eval=TRUE, message=FALSE}
 library(tidyverse)
 library("ggplot2")
 
@@ -84,7 +87,5 @@ ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30
        x = "Year",
        y = "Number of Severe Bleaching Events >30% Bleached")
 ```
-This data visualization shows a general timeline of severe coral bleaching events from the year 1930 to 2016, and is organized by general
-location, which in this case is the ocean's region. The x-axis shows the change in time, while the y-axis shows the number of severe
-bleaching events that occurred that year. The data points are organized by location, with a different color representing each region.
-Overall, Australasia has the most frequent severe coral bleaching events with the exception of the World category.
+
+This data visualization shows a general timeline of severe coral bleaching events from the year 1930 to 2016, and is organized by general location, which in this case is the ocean's region. The x-axis shows the change in time, while the y-axis shows the number of severe bleaching events that occurred that year. The data points are organized by location, with a different color representing each region. Overall, Australasia has the most frequent severe coral bleaching events with the exception of the World category.
