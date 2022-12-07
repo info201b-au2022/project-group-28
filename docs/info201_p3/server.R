@@ -12,7 +12,6 @@ library(tidyverse)
 library(sf)
 library(mapview)
 library(leaflet)
-
 #create data frames
 name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 

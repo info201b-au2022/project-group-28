@@ -10,6 +10,20 @@
 library(shiny)
 library(shinythemes)
 library(leaflet)
+#create data frames
+name = c("Acropora", "Montipora", "Pocillopora", "Porites")
+Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
+value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
+
+
+corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
+
+severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
+
+coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
+severity <- coral_data %>% 
+  filter(SEVERITY_CODE > 0) %>% 
+  select(COUNTRY, LAT, LON, YEAR, SEVERITY_CODE)
 
 #creating the intro page
 tab_panel_01 <-tabPanel(
@@ -59,7 +73,7 @@ tab_panel_06 <- tabPanel(
   "Project Report",
   mainPanel(
     h1("The Impacts of Coral Bleaching"),
-    p("Authors: Sarah Haworth (shaworth@uw.edu), Erin Dong (edong10@uw.edu)
+    p("Authors: Sarah Haworth (shaworth@uw.edu), Erin Dong (edong10@uw.edu),
       Brian Yoo (byoo7@uw.edu)"),
     em("INFO-201: Technical Foundations of Informatics - The Information School
        - University of Washington"),
