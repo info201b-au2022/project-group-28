@@ -33,7 +33,7 @@ severity <- coral_data %>%
 tab_panel_01 <-tabPanel(
   "Introduction",
   mainPanel(
-    h1("Introduction"),
+    h1("Introduction")
   ),
   verbatimTextOutput("introduction"))
 #creating first interactive page
@@ -68,6 +68,10 @@ tab_panel_04 <- tabPanel(
   "Linegraph",
   mainPanel(
     h1("Linegraph"),
+    selectInput(
+      inputId = "entity",
+      label = "Entity:", 
+      choices = unique(severe_coral_bleaching_events$Entity)),
     plotOutput("linegraph")
   )
 )

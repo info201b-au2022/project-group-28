@@ -13,20 +13,16 @@ library(sf)
 library(mapview)
 library(leaflet)
 
-#create data frames
+#create corals
 name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
 value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
 corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE)
 
+#create severe_coral_bleaching_events
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
 
-new_corals <- reactive({
-  corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
-})  
-
-severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
-
+#create coral_data
 coral_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
 severity <- coral_data %>% 
   filter(SEVERITY_CODE > 0) %>% 
@@ -71,16 +67,24 @@ shinyServer(function(input, output) {
       ) %>%
         layout(title = "Coral Bleaching vs Type", 
                xaxis = list(title = "Name"), 
-               yaxis = list(title = "Coral Bleaching Succeptibity", 
-                            ticksuffix = " ", "Bleaching Index"))
+               yaxis = list(title = "Coral Bleaching Succeptibity"))
     })
     
-    output$linegraph <- renderPlot({
-      ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
-        geom_line() +
-        labs(title = "Severe Coral Bleaching Events Over Time",
-             x = "Year",
-             y = "Number of Severe Bleaching Events >30% Bleached")
+    output$linegraph <- renderPlotly ({
+      entity <- filter(severe_coral_bleaching_events,
+                       Entity == input$entity)
+      plot_ly(
+        data = entity,      
+        x = ~Year, 
+        y = ~Severe.bleaching.events...30..bleached., 
+        type = "scatter", 
+        mode = "lines"
+        
+      ) %>%
+          layout(title = "Coral Bleaching Based on Year", 
+                 xaxis = list(title = "Year"), 
+                 yaxis = list(title = "Severity of Bleaching"))
+
     })
     
 })
