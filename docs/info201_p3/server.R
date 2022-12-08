@@ -61,6 +61,7 @@ shinyServer(function(input, output) {
         data = reef_size,      
         x = ~name, 
         y = ~value, 
+        color = ~name, 
         type = "bar", 
         alpha = .7,
         hovertext = ""
