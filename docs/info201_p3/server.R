@@ -13,6 +13,15 @@ library(sf)
 library(mapview)
 library(leaflet)
 
+#create report table
+data_file_name = c("CoralBleaching", 
+                   "Rowley_Shoals_and_Scott_Reef_Long-term_Reef_Slope_coral",
+                   "Rowley_Shoals_and_Scott_Reef_Habitats_2016_Bleaching_Cover",
+                   "coral_bleaching_events")
+observations = c(6190, 159, 105, 185)
+variables = c(28, 18, 8, 5)
+report_table <- data.frame(data_file_name, observations, variables)
+
 #create corals
 name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 

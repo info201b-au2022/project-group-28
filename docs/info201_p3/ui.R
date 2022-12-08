@@ -10,7 +10,8 @@
 library(shiny)
 library(shinythemes)
 library(leaflet)
-#create data frames
+
+#create report table
 data_file_name = c("CoralBleaching", 
                    "Rowley_Shoals_and_Scott_Reef_Long-term_Reef_Slope_coral",
                    "Rowley_Shoals_and_Scott_Reef_Habitats_2016_Bleaching_Cover",
@@ -19,18 +20,22 @@ observations = c(6190, 159, 105, 185)
 variables = c(28, 18, 8, 5)
 report_table <- data.frame(data_file_name, observations, variables)
 
+#create corals
 name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
 value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
 corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE)
 
+#create severe coral bleaching events table
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
 
+#create coral_data
 coral_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
 severity <- coral_data %>% 
   filter(SEVERITY_CODE > 0) %>% 
   select(COUNTRY, LAT, LON, YEAR, SEVERITY_CODE)
 
+#create summary_table
 summary_table <- coral_data %>% 
   select(COUNTRY, CORAL_SPECIES, YEAR, SEVERITY_CODE, BLEACHING_SEVERITY) %>% 
   group_by(COUNTRY) %>%
