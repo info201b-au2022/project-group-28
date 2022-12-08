@@ -13,21 +13,36 @@ library(sf)
 library(mapview)
 library(leaflet)
 
-source("p02-coral-bleaching-map.R")
+#create data frames
+name = c("Acropora", "Montipora", "Pocillopora", "Porites")
+Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
+value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
+
+
+corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
+
+severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
+
+coral_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
+severity <- coral_data %>% 
+  filter(SEVERITY_CODE > 0) %>% 
+  select(COUNTRY, LAT, LON, YEAR, SEVERITY_CODE)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
     output$map <- renderLeaflet({
+      data_by_country <- filter(severity,
+                             COUNTRY == input$country)
       pal <- colorFactor(
         palette = "Dark2", 
-        domain = severity[["SEVERITY_CODE"]]
-        )
-      leaflet(data = severity) %>%
+        domain = data_by_country[["SEVERITY_CODE"]]
+      )
+      leaflet(data = data_by_country) %>%
          addTiles() %>%
          addCircleMarkers(
            lat = ~LAT,
            lng = ~LON,
-           color = ~pal(severity[["SEVERITY_CODE"]]),
+           color = ~pal(data_by_country[["SEVERITY_CODE"]]),
            fillOpacity = 0.7,
            radius = 4,
            stroke = FALSE) %>%
@@ -35,7 +50,7 @@ shinyServer(function(input, output) {
            position = "bottomright",
            title = "severity code",
            pal = pal,
-           values = severity[["SEVERITY_CODE"]],
+           values = data_by_country[["SEVERITY_CODE"]],
            opacity = 1
          )
     })
