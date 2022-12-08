@@ -30,14 +30,10 @@ Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)")
 value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
 corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE)
 
-<<<<<<< HEAD
-corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
-
 severe_coral_bleaching_events <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
-=======
+
 #create severe_coral_bleaching_events
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
->>>>>>> c6f3a39ea75722169e9c7bac287d3d9faae2a92b
 
 #create coral_data
 coral_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
@@ -94,15 +90,6 @@ shinyServer(function(input, output) {
                xaxis = list(title = "Name"), 
                yaxis = list(title = "Coral Bleaching Succeptibity"))
     })
-<<<<<<< HEAD
-    output$linegraph <- renderPlot({
-      linegraph <- ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
-        geom_line() +
-        labs(title = "Severe Coral Bleaching Events Over Time",
-             x = "Year",
-             y = "Number of Severe Bleaching Events >30% Bleached")
-=======
-    
     output$linegraph <- renderPlotly ({
       entity <- filter(severe_coral_bleaching_events,
                        Entity == input$entity)
@@ -111,8 +98,8 @@ shinyServer(function(input, output) {
         x = ~Year, 
         y = ~Severe.bleaching.events...30..bleached., 
         type = "scatter", 
-        mode = "lines"
-        
+        mode = "lines",
+        hovertext = ""
       ) %>%
           layout(title = "Coral Bleaching Based on Year", 
                  xaxis = list(title = "Year"), 
@@ -124,7 +111,6 @@ shinyServer(function(input, output) {
     })
     output$report_table <- renderTable({
       report_table
->>>>>>> c6f3a39ea75722169e9c7bac287d3d9faae2a92b
     })
     
 })

@@ -10,10 +10,9 @@
 library(shiny)
 library(shinythemes)
 library(leaflet)
+library(tidyverse)
+library(plotly)
 
-<<<<<<< HEAD
-#create data frames
-=======
 #create report table
 data_file_name = c("CoralBleaching", 
                    "Rowley_Shoals_and_Scott_Reef_Long-term_Reef_Slope_coral",
@@ -24,18 +23,13 @@ variables = c(28, 18, 8, 5)
 report_table <- data.frame(data_file_name, observations, variables)
 
 #create corals
->>>>>>> c6f3a39ea75722169e9c7bac287d3d9faae2a92b
+
 name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
 value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
 corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE)
 
-<<<<<<< HEAD
-corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
-
-=======
 #create severe coral bleaching events table
->>>>>>> c6f3a39ea75722169e9c7bac287d3d9faae2a92b
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
 
 #create coral_data
@@ -63,67 +57,60 @@ tab_panel_01 <-tabPanel(
 
 #creating first interactive page
 tab_panel_02 <- tabPanel(
-  "Map of Coral Bleaching",
-  mainPanel(
-    h1("Coral Bleaching Around the World Based on Severity Level"),
-    selectInput("country", "Country:",
-                choices = unique(severity$COUNTRY)),
-    leafletOutput("map"),
+  "Chart 1",
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("country", "Country:",
+                  choices = unique(severity$COUNTRY))
+    ),
+    mainPanel(
+      h1("Coral Bleaching Around the World Based on Severity Level"),
+      leafletOutput("map")
+    )
   )
 )
 
 #creating second interactive page
 tab_panel_03 <- tabPanel(
-<<<<<<< HEAD
-  "Bar Graph",
-  mainPanel(
-    h1("Bar Graph"),
-    plotOutput("bargraph")
-=======
-  "Bargraph",
+  "Chart 2",
   sidebarLayout(
     sidebarPanel(
-      selectInput(
-        inputId = "size",
-        label = "Find a Coral Size", 
-        choices = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)")
-      )
-    ), 
+      selectInput("size", "Find a Coral Size", 
+        choices = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)"))
+    ),
     mainPanel(
+      h1("Coral Bleaching By Species and Size"),
       plotlyOutput("bargraph")
     )
->>>>>>> c6f3a39ea75722169e9c7bac287d3d9faae2a92b
   )
 )
 
 #creating third interactive page
 tab_panel_04 <- tabPanel(
-<<<<<<< HEAD
-  "Line Graph",
-  mainPanel(
-    h1("Line Graph"),
-=======
-  "Linegraph",
-  mainPanel(
-    h1("Linegraph"),
-    selectInput(
-      inputId = "entity",
-      label = "Entity:", 
-      choices = unique(severe_coral_bleaching_events$Entity)),
->>>>>>> c6f3a39ea75722169e9c7bac287d3d9faae2a92b
-    plotOutput("linegraph")
+  "Chart 3",
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("entity", "Entity", 
+        choices = unique(severe_coral_bleaching_events$Entity))
+    ),
+    mainPanel(
+      h1("Severity of Coral Bleaching Over the Years"),
+      plotlyOutput("linegraph")
+    )
   )
 )
 
 tab_panel_05 <- tabPanel(
-  "Summary Takeaways",
+  "Summary",
   mainPanel(
-    h1("Summary Table"),
+    h1("Summary"),
+    h3(strong("There are 3 main takeaways from this data analysis:")),
     tableOutput("summary_table")
   )
 )
+
 tab_panel_06 <- tabPanel(
-  "Project Report",
+  "Report",
   mainPanel(
     h1("The Impacts of Coral Bleaching"),
     p("Authors: Sarah Haworth (shaworth@uw.edu), Erin Dong (edong10@uw.edu),
