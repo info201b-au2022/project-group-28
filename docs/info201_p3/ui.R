@@ -18,12 +18,6 @@ value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
 
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
 
-new_corals <- reactive({
-  corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
-}) 
-
-severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
-
 coral_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
 severity <- coral_data %>% 
   filter(SEVERITY_CODE > 0) %>% 
@@ -33,7 +27,8 @@ severity <- coral_data %>%
 tab_panel_01 <-tabPanel(
   "Introduction",
   mainPanel(
-    h1("Introduction")
+    h1("Introduction"),
+    img(src = "https://ichef.bbci.co.uk/news/976/cpsprodpb/1835/production/_123879160_whatsappimage2022-03-25at3.07.12pm.jpg")
   ),
   verbatimTextOutput("introduction"))
 #creating first interactive page
@@ -201,7 +196,7 @@ journals and social science journals such as The Washington Post, The New York T
 fluidPage(
   theme = shinytheme("darkly"),
   navlistPanel(
-    "Trends Coral Reef Bleaching",
+    "Trends of Coral Reef Bleaching",
     
     # Variable set in tab_panel_plot.R
     tab_panel_01,
