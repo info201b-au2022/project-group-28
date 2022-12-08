@@ -109,8 +109,39 @@ shinyServer(function(input, output) {
     output$summary_table <- renderTable({
       summary_table
     })
-    output$report_table <- renderTable({
-      report_table
+    output$summary_map <- renderLeaflet({
+      pal <- colorFactor(
+        palette = "Dark2", 
+        domain = severity[["SEVERITY_CODE"]]
+      )
+      leaflet(data = severity) %>%
+        addTiles() %>%
+        addCircleMarkers(
+          lat = ~LAT,
+          lng = ~LON,
+          color = ~pal(severity[["SEVERITY_CODE"]]),
+          fillOpacity = 0.7,
+          radius = 4,
+          stroke = FALSE) %>%
+        addLegend(
+          position = "bottomright",
+          title = "severity code",
+          pal = pal,
+          values = severity[["SEVERITY_CODE"]],
+          opacity = 1)
     })
-    
+    output$summary_linegraph <- renderPlot({
+      ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
+      geom_line() +
+        labs(title = "Severe Coral Bleaching Events Over Time",
+             x = "Year",
+             y = "Number of Severe Bleaching Events >30% Bleached")
+    })
+    output$summary_bargraph <- renderPlot({
+      ggplot(data = corals, aes(x = name, y = value, fill = Reef_Size)) + 
+        geom_bar(stat = "identity", position = "dodge") +
+        labs(title = "Coral Species vs Bleaching Susceptibility", 
+             x = "Coral Species", 
+             y = "Bleaching Susceptibilty (percentage)")
+    })
 })

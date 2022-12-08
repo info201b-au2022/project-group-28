@@ -49,8 +49,27 @@ summary_table <- coral_data %>%
 tab_panel_01 <-tabPanel(
   "Introduction",
   mainPanel(
+    img(src = "https://ichef.bbci.co.uk/news/976/cpsprodpb/1835/production/_123879160_whatsappimage2022-03-25at3.07.12pm.jpg"),
     h1("Introduction"),
-    img(src = "https://ichef.bbci.co.uk/news/976/cpsprodpb/1835/production/_123879160_whatsappimage2022-03-25at3.07.12pm.jpg")
+    p("Our research project examines the increasing rate of coral bleaching and its impact on the world during the last couple
+      of decades. We believe that corals and their reefs are an essential part of our world and it’s necessary to pay attention 
+      to their well-being. Our problem domain educates our audience about coral bleaching and how it impacts them. In our 
+      problem domain, we considered what coral bleaching is, why they are bleaching, why we should care, and who’s at stake from this. "),
+    p("Using our problem domain, we addressed three different research questions to center our project on. These questions consider 
+      where coral bleaching most commonly occurs, when do coral bleaching occur, and if more coral reefs can adapt to survive with resilient
+      species. Each question focused on conditions related to the bleaching of corals and their reefs. Additionally, we collected different
+      data and analyzed them so that we can answer our research questions through our visualizations."),
+    p("Our first research question is “Where does coral bleaching occur most commonly?”  To answer our question, we created a visualization 
+      that displays a world map and locates where corals often bleach. For this visualization, we analyzed and utilized data that stores the
+      location of coral bleaching “hotspots” and their severity. Our next research question is “When does coral bleaching usually occur?” To
+      answer this question, we created a scatterplot where different factors to coral bleaching are defined and reveal their impact on coral
+      bleaching. For this visualization, we imported data on elements that might impact the extremity of coral bleaching. Our last research
+      question is “Can more coral reefs adapt to survive with resilient species?” To answer this question, we created a bar-graph visualization
+      showing the different coral species, grouped by their reef sizes and show how susceptible each species might be to coral bleaching. To 
+      make this visualization, we gathered data on different coral species, categorized by their sizes, and measurement of susceptibility to coral bleaching. "),
+    p("With our data analysis and visualizations that address our research questions, we were able to find key values that help us know more about coral 
+      bleaching and possible findings that can contribute to preventing it.")
+   
   ),
   verbatimTextOutput("introduction")
 )
@@ -65,7 +84,19 @@ tab_panel_02 <- tabPanel(
     ),
     mainPanel(
       h1("Coral Bleaching Around the World Based on Severity Level"),
-      leafletOutput("map")
+      leafletOutput("map"),
+      p("This data visualization displays a map of the world, and focuses on the different levels of 
+      coral bleaching severity based on a specific location. There are three levels of coral bleaching 
+      severity displayed in this graph, with 1 being the lowest and 3 being the highest. Locations with
+      a severity code of less than 1 were excluded from this map. A higher severity level number indicates 
+      that the coral reefs within a selected area suffered the most damage from bleaching, and also implies
+      that the area is more susceptible to future cases of coral bleaching. This interactive map gives 
+      users the option to select a country or territory and displays the corresponding coral reef bleaching
+      severity levels of the surrounding area. Users can gain a more detailed insight to specific locations
+      by zooming in or out. Overall, this map indicates that coral bleaching is not limited to only one part
+      of the world, but can occur in any location with coral reefs regardless of the specific location. 
+      However, coral bleaching is more severe in areas with higher densities of coral reefs, such as around
+      islands or warmer locations.")
     )
   )
 )
@@ -80,7 +111,16 @@ tab_panel_03 <- tabPanel(
     ),
     mainPanel(
       h1("Coral Bleaching By Species and Size"),
-      plotlyOutput("bargraph")
+      plotlyOutput("bargraph"),
+      p("This visualization addresses the question, “Can more coral reefs adapt to survive with resilient species?”
+        and displays the different coral species and how susceptible each species might be to coral bleaching based
+        on their size. To make this visualization, we gathered data on different coral species, categorized by their
+        sizes and measurement of susceptibility to coral bleaching. Each coral species has a different level of 
+        susceptibility and the graph reveals how each of them compare based on their sizes. This visualization gives
+        the users an option to choose from three different sizes and display bar-graphs according to the chosen option
+        . From the information presented in the bar-graph, users are able to learn what kind of coral species are most
+        susceptible to coral bleaching and use it to understand if the sizes of coral reefs truly do have  a better 
+        chance of adapting to survive with more resilient species. ")
     )
   )
 )
@@ -95,7 +135,16 @@ tab_panel_04 <- tabPanel(
     ),
     mainPanel(
       h1("Severity of Coral Bleaching Over the Years"),
-      plotlyOutput("linegraph")
+      plotlyOutput("linegraph"),
+      p("This interactive line chart shows trends in the occurrence of severe coral bleaching events over 
+        time in different parts of the world. Severe coral bleaching events are defined as periods of time
+        in which more than 30% of the coral in a specific area are considered bleached. From this data visualization,
+        users can view a general timeline of the number of bleaching events that occur in a specific year from 1930
+        to 2016, and can change the ocean region where the data is displayed. Overall, this graph shows that coral
+        bleaching events occur most frequently and most severely in Australasia, with the exception of the “World” 
+        option where users can view the world’s data as a whole. Coral bleaching events continue to rise and occur more
+        frequently in almost every part of the world except for the West Atlantic, with the number of events 
+        continuing to rise significantly in every territory and throughout the world.")
     )
   )
 )
@@ -105,7 +154,14 @@ tab_panel_05 <- tabPanel(
   mainPanel(
     h1("Summary"),
     h3(strong("There are 3 main takeaways from this data analysis:")),
-    tableOutput("summary_table")
+    p("1. Coral bleaching affects coral all over the world. It is not concentrated to one particular region of 
+      coral reefs."),
+    leafletOutput("summary_map"),
+    p("2. The Acropora species is the most susceptible to coral bleaching out of the different species analyzed
+      and the Porites species is overall the most resilient."),
+    plotOutput("summary_bargraph"),
+    p("3. There is a spike in the severity of coral bleaching events in 1998 in most parts of the world."),
+    plotOutput("summary_linegraph")
   )
 )
 
@@ -214,7 +270,8 @@ journals and social science journals such as The Washington Post, The New York T
     h5(strong("Can more coral reefs adapt to survive with resilient species?")),
     p("Certain species are more susceptible to coral bleaching and some species are more resilient. Based on the data explored in this report, the", em("Acropora"), "species appears to be the most susceptible.", em("Acropora"),
       "is one of the most widespread coral groups. This is mainly due to the fact that it can cope with rapid sea-level changes. Unfortunately,", em("Acropora"), "is very sensitive to changes in the ocean caused by human activity. The ",
-      em("Montipora"), "species also seems to be more susceptible as well.", em("Montipora"), "Montipora is much rarer but is easily impacted by ocean warming. The", em("Pocillopora"), "and", em("Porites"), "species are more resilient to coral bleaching than the two species mentioned above.",
+      em("Montipora"), "species for larger corals and the", em("Pocillopora"), "species for medium sized reefs also seem to be more susceptible.", em("Montipora"), "Montipora is much rarer but is easily impacted by ocean warming. The", 
+      em("Montipora,"), em("Pocillopora,"), "and", em("Porites"), "species are more resilient to coral bleaching than", em("Acropora"), "species mentioned above.",
       em("Pocillopora"), "is found on most coral reefs of the Indo-Pacific and eastern Pacific. It is relatively common.", em("Porites"), "is rarer and can be found in reefs throughout the world."),
     h3("Discussion"),
     h3("Conclusion"),
