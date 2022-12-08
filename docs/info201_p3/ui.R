@@ -47,11 +47,20 @@ tab_panel_02 <- tabPanel(
 #creating second interactive page
 tab_panel_03 <- tabPanel(
   "Bargraph",
-  mainPanel(
-    h1("Bargraph"),
-    plotOutput("bargraph")
+  sidebarLayout(
+    sidebarPanel(
+      selectInput(
+        inputId = "Search a size",
+        label = "Find a Coral Size", 
+        choices = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)")
+      )
+    ), 
+    mainPanel(
+      plotlyOutput("bar")
+    )
   )
 )
+
 #creating third interactive page
 tab_panel_04 <- tabPanel(
   "Linegraph",
