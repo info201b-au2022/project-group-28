@@ -47,8 +47,8 @@ shinyServer(function(input, output) {
              y = "Bleaching Susceptibilty (percentage)")
     })
     output$scatterplot <- renderPlot({
-      scatterplot <- ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
-        geom_point() +
+      line_graph <- ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
+        geom_line() +
         labs(title = "Severe Coral Bleaching Events Over Time",
              x = "Year",
              y = "Number of Severe Bleaching Events >30% Bleached")
