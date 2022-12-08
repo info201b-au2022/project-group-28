@@ -28,6 +28,13 @@ severity <- coral_data %>%
   filter(SEVERITY_CODE > 0) %>% 
   select(COUNTRY, LAT, LON, YEAR, SEVERITY_CODE)
 
+#create summary table
+summary_table <- coral_data %>% 
+  select(COUNTRY, CORAL_SPECIES, YEAR, SEVERITY_CODE, BLEACHING_SEVERITY) %>% 
+  group_by(COUNTRY) %>%
+  filter(CORAL_SPECIES == "Acropora"| CORAL_SPECIES == "Montipora"|
+           CORAL_SPECIES == "Pocillopora"| CORAL_SPECIES == "Porites", na.rm = TRUE)
+
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
     output$map <- renderLeaflet({
@@ -86,6 +93,12 @@ shinyServer(function(input, output) {
                  xaxis = list(title = "Year"), 
                  yaxis = list(title = "Severity of Bleaching"))
 
+    })
+    output$summary_table <- renderTable({
+      summary_table
+    })
+    output$report_table <- renderTable({
+      report_table
     })
     
 })

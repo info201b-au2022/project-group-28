@@ -11,10 +11,18 @@ library(shiny)
 library(shinythemes)
 library(leaflet)
 #create data frames
+data_file_name = c("CoralBleaching", 
+                   "Rowley_Shoals_and_Scott_Reef_Long-term_Reef_Slope_coral",
+                   "Rowley_Shoals_and_Scott_Reef_Habitats_2016_Bleaching_Cover",
+                   "coral_bleaching_events")
+observations = c(6190, 159, 105, 185)
+variables = c(28, 18, 8, 5)
+report_table <- data.frame(data_file_name, observations, variables)
 
 name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
 value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
+corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE)
 
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
 
@@ -22,6 +30,12 @@ coral_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/projec
 severity <- coral_data %>% 
   filter(SEVERITY_CODE > 0) %>% 
   select(COUNTRY, LAT, LON, YEAR, SEVERITY_CODE)
+
+summary_table <- coral_data %>% 
+  select(COUNTRY, CORAL_SPECIES, YEAR, SEVERITY_CODE, BLEACHING_SEVERITY) %>% 
+  group_by(COUNTRY) %>%
+  filter(CORAL_SPECIES == "Acropora"| CORAL_SPECIES == "Montipora"|
+           CORAL_SPECIES == "Pocillopora"| CORAL_SPECIES == "Porites", na.rm = TRUE)
 
 #creating the intro page
 tab_panel_01 <-tabPanel(
@@ -71,7 +85,11 @@ tab_panel_04 <- tabPanel(
   )
 )
 tab_panel_05 <- tabPanel(
-  "Summary Takeaways"
+  "Summary Takeaways",
+  mainPanel(
+    h1("Summary Table"),
+    tableOutput("summary_table")
+  )
 )
 tab_panel_06 <- tabPanel(
   "Project Report",
@@ -137,6 +155,7 @@ more common or where coral bleaching occurs at a higher frequency helps identify
 locations around the world and how effected each location is by coral bleaching.
 The range of each dataset displays how coral bleaching has occurred overtime
 and how it has increased or decreased depending on the location."),
+    tableOutput("report_table"),
     h5(strong("Citations")),
     p("ReefBase. (2022, September 28). Coral Bleaching Data. Harvard Dataverse. Retrieved October 31, 2022, from
 https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi%3A10.7910%2FDVN%2FKUVQKY
