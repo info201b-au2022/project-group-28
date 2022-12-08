@@ -18,6 +18,7 @@ name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
 value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
 
+severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
 
 corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
 
@@ -55,14 +56,14 @@ shinyServer(function(input, output) {
          )
     })
     output$bargraph <- renderPlot({
-      bargraph <- ggplot(data = corals, aes(x = name, y = value, fill = Reef_Size)) + 
+      ggplot(data = corals, aes(x = name, y = value, fill = Reef_Size)) + 
         geom_bar(stat = "identity", position = "dodge") +
         labs(title = "Coral Species vs Bleaching Susceptibility", 
              x = "Coral Species", 
              y = "Bleaching Susceptibilty (percentage)")
     })
-    output$scatterplot <- renderPlot({
-      line_graph <- ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
+    output$linegraph <- renderPlot({
+      ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
         geom_line() +
         labs(title = "Severe Coral Bleaching Events Over Time",
              x = "Year",

@@ -16,6 +16,7 @@ name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
 value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
 
+severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
 
 corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
 
@@ -61,10 +62,10 @@ tab_panel_03 <- tabPanel(
 )
 #creating third interactive page
 tab_panel_04 <- tabPanel(
-  "Scatterplot",
+  "Linegraph",
   mainPanel(
-    h1("Scatterplot"),
-    plotOutput("scatterplot")
+    h1("Linegraph"),
+    plotOutput("linegraph")
   )
 )
 tab_panel_05 <- tabPanel(
