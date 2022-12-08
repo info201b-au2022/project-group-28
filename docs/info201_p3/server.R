@@ -12,20 +12,8 @@ library(tidyverse)
 library(sf)
 library(mapview)
 library(leaflet)
-#create data frames
-name = c("Acropora", "Montipora", "Pocillopora", "Porites")
-Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
-value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
 
-
-corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
-
-severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
-
-coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
-severity <- coral_data %>% 
-  filter(SEVERITY_CODE > 0) %>% 
-  select(COUNTRY, LAT, LON, YEAR, SEVERITY_CODE)
+source("p02-coral-bleaching-map.R")
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
