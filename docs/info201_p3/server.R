@@ -22,6 +22,10 @@ severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/inf
 
 corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
 
+new_corals <- reactive({
+  corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
+})  
+
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
 
 coral_data <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
@@ -55,13 +59,22 @@ shinyServer(function(input, output) {
            opacity = 1
          )
     })
-    output$bargraph <- renderPlot({
-      ggplot(data = corals, aes(x = name, y = value, fill = Reef_Size)) + 
-        geom_bar(stat = "identity", position = "dodge") +
-        labs(title = "Coral Species vs Bleaching Susceptibility", 
-             x = "Coral Species", 
-             y = "Bleaching Susceptibilty (percentage)")
+    output$bargraph <- renderPlotly ({
+      plot_ly(
+        data = new_corals(),      
+        x = ~name, 
+        y = ~value, 
+        color = ~Reef_Size, 
+        type = "bar", 
+        alpha = .7,
+        hovertext = ""
+      ) %>%
+        layout(title = "Coral Bleaching vs Type", 
+               xaxis = list(title = "Name"), 
+               yaxis = list(title = "Coral Bleaching Succeptibity", 
+                            ticksuffix = " ", "Bleaching Index"))
     })
+    
     output$linegraph <- renderPlot({
       ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
         geom_line() +
