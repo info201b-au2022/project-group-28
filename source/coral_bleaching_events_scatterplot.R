@@ -1,5 +1,5 @@
 library(tidyverse)
-library("ggplot2")
+library(ggplot2)
 
 # Load coral-bleaching-events.csv, with moderate and severe coral bleaching events with time and general location
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
@@ -15,3 +15,16 @@ scatter <- ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.
 # location, which in this case is the ocean's region. The x-axis shows the change in time, while the y-axis shows the number of severe
 # bleaching events that occurred that year. The data points are organized by location, with a different color representing each region.
 # Overall, Australasia has the most frequent severe coral bleaching events with the exception of the World category.
+
+# Editing scatterplot to line graph
+line_graph <- ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
+  geom_line() +
+  labs(title = "Severe Coral Bleaching Events Over Time",
+       x = "Year",
+       y = "Number of Severe Bleaching Events >30% Bleached")
+
+library(plotly)
+ggplotly(line_graph)
+
+install.packages("leaflet")
+library(leaflet)

@@ -10,11 +10,11 @@
 library(shiny)
 library(shinythemes)
 library(leaflet)
+
 #create data frames
 name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
 value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
-
 
 corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
 
@@ -31,7 +31,9 @@ tab_panel_01 <-tabPanel(
   mainPanel(
     h1("Introduction"),
   ),
-  verbatimTextOutput("introduction"))
+  verbatimTextOutput("introduction")
+)
+
 #creating first interactive page
 tab_panel_02 <- tabPanel(
   "Map of Coral Bleaching",
@@ -50,22 +52,25 @@ coral bleaching does not necessarily have any correlation with a particular
 region of the world.")
   )
 )
+
 #creating second interactive page
 tab_panel_03 <- tabPanel(
-  "Bargraph",
+  "Bar Graph",
   mainPanel(
-    h1("Bargraph"),
+    h1("Bar Graph"),
     plotOutput("bargraph")
   )
 )
+
 #creating third interactive page
 tab_panel_04 <- tabPanel(
-  "Scatterplot",
+  "Line Graph",
   mainPanel(
-    h1("Scatterplot"),
-    plotOutput("scatterplot")
+    h1("Line Graph"),
+    plotOutput("linegraph")
   )
 )
+
 tab_panel_05 <- tabPanel(
   "Summary Takeaways"
 )

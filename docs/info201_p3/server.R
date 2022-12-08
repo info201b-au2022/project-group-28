@@ -7,6 +7,8 @@
 #    http://shiny.rstudio.com/
 #
 
+library(plotly)
+library(rbokeh)
 library(shiny)
 library(tidyverse)
 library(sf)
@@ -17,10 +19,9 @@ name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
 value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
 
-
 corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
 
-severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
+severe_coral_bleaching_events <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
 
 coral_data <- read_csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/CoralBleaching.csv")
 severity <- coral_data %>% 
@@ -58,8 +59,8 @@ shinyServer(function(input, output) {
              x = "Coral Species", 
              y = "Bleaching Susceptibilty (percentage)")
     })
-    output$scatterplot <- renderPlot({
-      line_graph <- ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
+    output$linegraph <- renderPlot({
+      linegraph <- ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleaching.events...30..bleached., color=Entity)) +
         geom_line() +
         labs(title = "Severe Coral Bleaching Events Over Time",
              x = "Year",
