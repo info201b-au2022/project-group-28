@@ -17,10 +17,9 @@ library(leaflet)
 name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
 value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
+corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE)
 
 severe_coral_bleaching_events <- read.csv("https://raw.githubusercontent.com/info201b-au2022/project-group-28/main/data/coral-bleaching-events.csv")
-
-corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
 
 new_corals <- reactive({
   corals <- data.frame(name, Reef_Size, value, stringsAsFactors = FALSE) 
@@ -60,11 +59,12 @@ shinyServer(function(input, output) {
          )
     })
     output$bargraph <- renderPlotly ({
+      reef_size <- filter(corals, 
+                          Reef_Size == input$size)
       plot_ly(
-        data = new_corals(),      
+        data = reef_size,      
         x = ~name, 
         y = ~value, 
-        color = ~Reef_Size, 
         type = "bar", 
         alpha = .7,
         hovertext = ""

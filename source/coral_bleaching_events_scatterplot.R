@@ -15,3 +15,4 @@ line_graph <- ggplot(severe_coral_bleaching_events, aes(x=Year, y=Severe.bleachi
 # location, which in this case is the ocean's region. The x-axis shows the change in time, while the y-axis shows the number of severe
 # bleaching events that occurred that year. The data points are organized by location, with a different color representing each region.
 # Overall, Australasia has the most frequent severe coral bleaching events with the exception of the World category.
+
