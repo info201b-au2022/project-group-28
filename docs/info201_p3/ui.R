@@ -11,7 +11,7 @@ library(shiny)
 library(shinythemes)
 library(leaflet)
 #create data frames
-(max(coral_data$YEAR))
+
 name = c("Acropora", "Montipora", "Pocillopora", "Porites")
 Reef_Size = c("small (< 10 cm)", "medium (10-50 cm)", "large (> 50 cm)") 
 value = c(56, 12, 5, 3, 50, 22, 11, 1, 55, 12, 48, 0)
